@@ -4,6 +4,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Loader2, RotateCcw, Send, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 import { Disclaimer, OutputSkeleton } from "@/components/AiOutput";
 import { AppShell } from "@/components/AppShell";
@@ -121,7 +122,7 @@ function ChatPage() {
                 <div key={message.id} className="max-w-[92%]">
                   <p className="label-mono mb-2">Assistant</p>
                   <div className="ai-prose">
-                    <ReactMarkdown>{text}</ReactMarkdown>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{text}</ReactMarkdown>
                   </div>
                 </div>
               );

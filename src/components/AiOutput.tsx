@@ -1,5 +1,6 @@
 import { AlertTriangle, Info, Loader2, Sparkles } from "lucide-react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 import type { AiStatus } from "@/hooks/useAiTool";
 
@@ -79,7 +80,7 @@ export function AiOutputPanel({
 
         {status === "done" && (
           <div className="ai-prose rise">
-            <ReactMarkdown>{text}</ReactMarkdown>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{text}</ReactMarkdown>
           </div>
         )}
       </div>
