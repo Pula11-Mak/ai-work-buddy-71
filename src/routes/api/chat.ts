@@ -15,7 +15,7 @@ export const Route = createFileRoute("/api/chat")({
         const result = streamText({
           model: getAiModel(getLovableAiGatewayRunId(request)),
           system: CHAT_SYSTEM,
-          messages: convertToModelMessages(messages),
+          messages: await convertToModelMessages(messages),
         });
 
         return result.toUIMessageStreamResponse();
